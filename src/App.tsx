@@ -1,21 +1,17 @@
-import { gql, useQuery } from "@apollo/client";
-import { useEffect } from "react";
-import { client } from "./lib/apollo";
-
-const GET_LESSONS_QUERY = gql`
-  query {
-    lessons {
-      id
-      title
-    }
-  }
-`;
+import { Sidebar } from "./components/Sidebar";
+import { Video } from "./components/Video";
+import { Event } from "./pages/Event";
 
 function App() {
-  const { data } = useQuery(GET_LESSONS_QUERY);
-  console.log(data);
-
-  return <h1 className="text-2xl font-bold text-violet-500">Hello world</h1>;
+  return (
+    <div className="flex flex-col min-h-screen ">
+      <Event />
+      <main className="flex flex-1">
+        <Video />
+        <Sidebar />
+      </main>
+    </div>
+  );
 }
 
 export default App;
